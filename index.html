@@ -6,100 +6,134 @@
   <title>채윤 & 감경 결혼합니다</title>
 
   <!-- 고급스러운 폰트 -->
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+KR&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
 
-  <!-- 썸네일 미리보기 -->
+  <!-- OG 태그 / 썸네일 미리보기 -->
   <meta property="og:title" content="채윤 ♥ 감경 결혼합니다" />
-  <meta property="og:description" content="2025년 9월 14일, 서울 성동구 H스퀘어웨딩홀. 함께해주세요." />
+  <meta property="og:description" content="2025년 9월 14일 오후 12시 30분, 서울 H스퀘어웨딩홀. 함께해주세요." />
   <meta property="og:image" content="https://yourdomain.com/images/thumbnail.jpg" />
-  <meta property="og:url" content="https://yourusername.github.io/wedding-invite/" />
+  <meta property="og:url" content="https://yourdomain.com/wedding" />
   <meta name="twitter:card" content="summary_large_image" />
 
   <style>
     :root {
-      --main-color: #9c7e6a;
-      --bg: #fdfbf8;
-      --text: #3b3b3b;
-      --card: #ffffff;
+      --main-color: #8a6e5a;
+      --bg-color: #f9f7f3;
+      --text-color: #3b3b3b;
+      --accent: #d4bfa8;
+      --card-bg: #ffffff;
     }
 
     body {
       margin: 0;
-      background-color: var(--bg);
+      background-color: var(--bg-color);
       font-family: 'Noto Serif KR', serif;
-      color: var(--text);
-      font-size: 1.3rem;
+      color: var(--text-color);
       line-height: 1.8;
     }
 
     header {
-      background: url('images/cover.jpg') no-repeat center/cover;
-      height: 440px;
+      background: url('images/cover.jpg') center/cover no-repeat;
+      height: 480px;
       display: flex;
       justify-content: center;
       align-items: center;
-      text-align: center;
-      color: white;
       font-family: 'Marcellus', serif;
-      font-size: 2.8rem;
-      font-weight: bold;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+      font-size: 3rem;
+      color: white;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
     .container {
-      max-width: 720px;
+      max-width: 780px;
       margin: auto;
-      padding: 40px 24px;
+      padding: 48px 24px;
     }
 
     .names {
       font-family: 'Marcellus', serif;
-      font-size: 2.5rem;
+      font-size: 2.8rem;
       text-align: center;
-      margin-top: 30px;
-    }
-
-    .info, .section {
-      background: var(--card);
-      padding: 28px;
-      border-radius: 14px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      margin: 40px 0;
-    }
-
-    .info p, .section p {
-      margin: 0 0 12px;
-    }
-
-    h3 {
-      font-size: 1.4rem;
-      color: var(--main-color);
-      margin-bottom: 16px;
-      border-left: 4px solid var(--main-color);
-      padding-left: 10px;
+      margin: 40px 0 20px;
     }
 
     .divider {
-      width: 50px;
-      margin: 30px auto;
-      border-bottom: 2px solid var(--main-color);
+      width: 80px;
+      border-bottom: 3px solid var(--main-color);
+      margin: 20px auto 40px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      padding: 28px;
+      margin: 30px 0;
+      border-radius: 16px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+    }
+
+    h3 {
+      font-size: 1.3rem;
+      color: var(--main-color);
+      margin-bottom: 16px;
+      font-weight: bold;
+      border-left: 4px solid var(--main-color);
+      padding-left: 12px;
+    }
+
+    .card p {
+      margin-bottom: 12px;
+      font-size: 1.1rem;
     }
 
     .map-button {
       display: inline-block;
+      margin: 12px 6px 0;
       padding: 12px 24px;
-      margin-top: 12px;
-      border: 1px solid var(--main-color);
+      border: 2px solid var(--main-color);
       border-radius: 8px;
       color: var(--main-color);
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
       transition: 0.3s;
     }
 
     .map-button:hover {
       background: var(--main-color);
       color: white;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      gap: 12px;
+      padding: 10px 0;
+    }
+
+    .gallery img {
+      height: 180px;
+      border-radius: 10px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .calendar {
+      text-align: center;
+      font-family: 'Marcellus', serif;
+    }
+
+    .calendar .date {
+      font-size: 2rem;
+      color: var(--main-color);
+      margin-bottom: 8px;
+    }
+
+    .calendar .day {
+      font-size: 1.2rem;
+      color: #777;
+    }
+
+    .account p {
+      font-family: 'Marcellus', serif;
+      font-size: 1.1rem;
     }
 
     footer {
@@ -109,58 +143,85 @@
       margin-top: 60px;
       padding-bottom: 40px;
     }
+
+    .share-buttons {
+      margin-top: 24px;
+      text-align: center;
+    }
+
+    .share-buttons a {
+      margin: 0 10px;
+      font-size: 1.2rem;
+      color: var(--main-color);
+      text-decoration: none;
+    }
+
+    @media (max-width: 600px) {
+      .gallery img { height: 140px; }
+      .map-button { font-size: 0.95rem; padding: 10px 18px; }
+    }
   </style>
 </head>
 <body>
 
-  <header>
-    Invitation
-  </header>
+<header>
+  You're Invited
+</header>
 
-  <div class="container">
-    <div class="names">임채윤 ♥ 왕감경</div>
-    <div class="divider"></div>
+<div class="container">
+  <div class="names">임채윤 ♥ 왕감경</div>
+  <div class="divider"></div>
 
-    <div class="info">
-      <p><strong>일시:</strong> 2025년 9월 14일 (일) 오후 12시 30분</p>
-      <p><strong>장소:</strong> 서울 성동구 행당동 15-1<br/>H스퀘어웨딩홀 6층</p>
-      <p><strong>우편번호:</strong> 04763</p>
-    </div>
-
-    <div class="section">
-      <h3>교통 안내</h3>
-      <p><strong>지하철:</strong>  
-        2호선 한양대역 1번출구 (도보 5분)<br>
-        5호선 왕십리역 6번출구 (도보 5분)
-      </p>
-      <p><strong>버스:</strong>  
-        지선: 2012, 2013, 2014, 2220, 2222, 2411, 2016<br>
-        간선: 263, 302, 371
-      </p>
-    </div>
-
-    <div class="section">
-      <h3>주차 안내</h3>
-      <p>하객 1시간 30분 무료주차 가능</p>
-      <p>동문회관 예식부 주차장, 한양대학병원 주차장 이용</p>
-    </div>
-
-    <div class="section">
-      <h3>위치 안내</h3>
-      <p>아래 버튼을 눌러 지도로 바로 연결됩니다.</p>
-      <a class="map-button" href="https://map.kakao.com/link/map/H스퀘어웨딩홀,37.557374,127.045716" target="_blank">📍 지도 보기 (카카오맵)</a>
-    </div>
-
-    <div class="section">
-      <h3>마음 전하실 곳</h3>
-      <p><strong>신랑:</strong> 국민은행 123456-78-91011</p>
-      <p><strong>신부:</strong> 신한은행 111222-33-44455</p>
-    </div>
-
-    <footer>
-      ⓒ 2025 임채윤 ♥ 왕감경 모바일 청첩장
-    </footer>
+  <div class="card calendar">
+    <div class="date">2025년 9월 14일</div>
+    <div class="day">일요일 오후 12시 30분</div>
+    <p>H스퀘어웨딩홀 6층 (서울 성동구 마조로 22-2)</p>
+    <p>우편번호: 04763</p>
   </div>
+
+  <div class="card">
+    <h3>갤러리</h3>
+    <div class="gallery">
+      <img src="images/gallery1.jpg" alt="Gallery 1">
+      <img src="images/gallery2.jpg" alt="Gallery 2">
+      <img src="images/gallery3.jpg" alt="Gallery 3">
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>교통 안내</h3>
+    <p><strong>지하철:</strong> 2호선 한양대역 1번출구, 5호선 왕십리역 6번출구 (도보 약 5분)</p>
+    <p><strong>버스:</strong> 지선: 2012, 2013, 2014, 2220 외 / 간선: 263, 302, 371</p>
+  </div>
+
+  <div class="card">
+    <h3>주차 안내</h3>
+    <p>하객 1시간 30분 무료주차</p>
+    <p>동문회관 예식부 주차장, 한양대병원 주차장 이용 가능</p>
+  </div>
+
+  <div class="card">
+    <h3>지도 연결</h3>
+    <p>지도를 통해 쉽게 찾아오세요.</p>
+    <a class="map-button" href="https://map.kakao.com/link/map/H스퀘어웨딩홀,37.557374,127.045716" target="_blank">📍 카카오맵</a>
+    <a class="map-button" href="https://map.naver.com/p/entry/place/11528974" target="_blank">📍 네이버지도</a>
+  </div>
+
+  <div class="card account">
+    <h3>마음 전하실 곳</h3>
+    <p>💍 신랑: 국민은행 123456-78-91011</p>
+    <p>💍 신부: 신한은행 111222-33-44455</p>
+  </div>
+
+  <div class="share-buttons">
+    <a href="https://twitter.com/intent/tweet?text=채윤%20♥%20감경%20결혼합니다!&url=https://yourdomain.com/wedding" target="_blank">💌 트위터 공유</a>
+    <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/wedding" target="_blank">💌 페이스북 공유</a>
+  </div>
+
+  <footer>
+    ⓒ 2025 임채윤 ♥ 왕감경 모바일 청첩장
+  </footer>
+</div>
 
 </body>
 </html>
