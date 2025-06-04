@@ -96,21 +96,44 @@
       .gallery { column-count: 1; }
     }
 
+
+
+    .map-card {
+      padding: 24px;
+    }
+
+    .map-card p {
+      font-size: 15px;
+      color: #ddd;
+      margin-bottom: 12px;
+    }
+
+    .map-embed {
+      margin: 16px 0;
+      overflow: hidden;
+      border-radius: 10px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
+
+    .map-buttons {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
     .map-button {
-      display: inline-block;
-      margin: 5px 10px 0 0;
-      padding: 10px 14px;
-      background-color: #ffffff22;
+      background-color: rgba(255, 255, 255, 0.05);
       color: white;
-      border-radius: 6px;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      padding: 10px 14px;
+      border-radius: 8px;
       text-decoration: none;
       font-size: 14px;
-      transition: background 0.3s;
-      border: 1px solid #ffffff44;
+      transition: background 0.2s;
     }
 
     .map-button:hover {
-      background-color: #ffffff44;
+      background-color: rgba(255, 255, 255, 0.12);
     }
 
     .account p {
@@ -128,6 +151,63 @@
       text-decoration: none;
       font-size: 16px;
       color: #ddd;
+    }
+    
+    .account-section {
+      margin-top: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.03);
+      overflow: hidden;
+    }
+
+    .account-section summary {
+      cursor: pointer;
+      padding: 12px 16px;
+      font-size: 16px;
+      color: white;
+      list-style: none;
+      letter-spacing: 0.4px;
+    }
+
+    .account-section summary::marker {
+      display: none;
+    }
+
+    .account-list {
+      padding: 10px 18px 14px;
+      font-size: 15.5px;
+      line-height: 1.7;
+      color: #ddd;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      letter-spacing: 0.3px;
+    }
+
+    .account-list p {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+
+    .account-num {
+      font-weight: 600;
+      font-family: 'Courier New', monospace;
+    }
+
+    .copy-btn {
+      font-size: 14px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: white;
+      padding: 3px 8px;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .copy-btn:hover {
+      background: rgba(255,255,255,0.15);
     }
 
     footer {
@@ -166,15 +246,61 @@
   <div class="card">
     <h3>지도 연결</h3>
     <p>지도를 통해 쉽게 찾아오세요.</p>
+
+  <!-- 🗺️ 지도 미리보기 (카카오맵 예시) -->
+  <div id="map" style="width: 100%; height: 300px; border-radius: 12px;"></div>
+
+  <!-- 📍 지도 버튼 -->
+  <div class="map-buttons">
     <a class="map-button" href="https://map.kakao.com/link/map/H스퀘어웨딩홀,37.557374,127.045716" target="_blank">📍 카카오맵</a>
     <a class="map-button" href="https://map.naver.com/p/entry/place/11528974" target="_blank">📍 네이버지도</a>
   </div>
+</div>
+
+<!-- 카카오 지도 스크립트 삽입 -->
+<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
+<script>
+  const container = document.getElementById('map');
+  const options = {
+    center: new kakao.maps.LatLng(37.557374, 127.045716),
+    level: 3
+  };
+  const map = new kakao.maps.Map(container, options);
+
+  const markerPosition  = new kakao.maps.LatLng(37.557374, 127.045716);
+  const marker = new kakao.maps.Marker({
+    position: markerPosition
+  });
+  marker.setMap(map);
+</script>
 
   <!-- 💝 계좌 안내 -->
   <div class="card account">
     <h3>마음 전하실 곳</h3>
-    <p>💍 신랑: 국민은행 123456-78-91011</p>
-    <p>💍 신부: 신한은행 111222-33-44455</p>
+  
+    <details class="account-section">
+      <summary>💍 신랑측 보기</summary>
+      <div class="account-list">
+        <p>👤 신랑 본인: 국민은행 <span class="account-num">123456-78-91011</span>
+          <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
+        <p>👨‍👦 아버지: 우리은행 <span class="account-num">111-2222-3333</span>
+          <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
+        <p>👩‍👦 어머니: 농협 <span class="account-num">444-5555-6666</span>
+          <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
+      </div>
+    </details>
+  
+    <details class="account-section">
+      <summary>💍 신부측 보기</summary>
+      <div class="account-list">
+        <p>👤 신부 본인: 신한은행 <span class="account-num">111222-33-44455</span>
+          <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
+        <p>👨‍👧 아버지: 하나은행 <span class="account-num">777-8888-9999</span>
+          <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
+        <p>👩‍👧 어머니: 카카오뱅크 <span class="account-num">000-1111-2222</span>
+          <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
+      </div>
+    </details>
   </div>
 
   <!-- 📣 공유 버튼 -->
@@ -190,6 +316,16 @@
 
   <!-- 🌸 하트 애니메이션 JS -->
 
+  <script>
+    function copyToClipboard(btn) {
+      const account = btn.previousElementSibling.textContent;
+      navigator.clipboard.writeText(account).then(() => {
+        btn.textContent = "✅";
+        setTimeout(() => btn.textContent = "📋", 1000);
+      });
+    }
+  </script>
+  
   </body>
   </html>
 
