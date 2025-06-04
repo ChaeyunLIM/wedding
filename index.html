@@ -2,204 +2,167 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>채윤 & 감경 결혼합니다</title>
-
-  <!-- 고급스러운 폰트 -->
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&family=Noto+Serif+KR:wght@300;400;700&display=swap" rel="stylesheet">
-
-  <!-- OG 태그 / 썸네일 미리보기 -->
-  <meta property="og:title" content="채윤 ♥ 감경 결혼합니다" />
-  <meta property="og:description" content="2025년 9월 14일 오후 12시 30분, 서울 H스퀘어웨딩홀. 함께해주세요." />
-  <meta property="og:image" content="https://yourdomain.com/images/thumbnail.jpg" />
-  <meta property="og:url" content="https://yourdomain.com/wedding" />
-  <meta name="twitter:card" content="summary_large_image" />
-
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>임채윤 ♥ 왕감경 결혼합니다</title>
+  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --main-color: #8a6e5a;
-      --bg-color: #f9f7f3;
-      --text-color: #3b3b3b;
-      --accent: #d4bfa8;
-      --card-bg: #ffffff;
-    }
-
-    body {
-      margin: 0;
-      background-color: var(--bg-color);
-      font-family: 'Noto Serif KR', serif;
-      color: var(--text-color);
-      line-height: 1.8;
-    }
-
-    header {
-      background: url('images/cover.jpg') center/cover no-repeat;
-      height: 480px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html, body {
+      scroll-behavior: smooth;
       font-family: 'Marcellus', serif;
-      font-size: 3rem;
+      background: #2d3b34;
+      height: 100%;
       color: white;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
     }
 
-    .container {
-      max-width: 780px;
-      margin: auto;
-      padding: 48px 24px;
+    #petal-container {
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 10;
     }
 
-    .names {
-      font-family: 'Marcellus', serif;
-      font-size: 2.8rem;
-      text-align: center;
-      margin: 40px 0 20px;
+
+    .section {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
     }
 
-    .divider {
-      width: 80px;
-      border-bottom: 3px solid var(--main-color);
-      margin: 20px auto 40px;
+    .section img {
+      width: 100%;
+      display: block;
     }
 
     .card {
-      background: var(--card-bg);
-      padding: 28px;
-      margin: 30px 0;
+      background: rgba(255, 255, 255, 0.05);
+      margin: 30px auto;
+      padding: 20px;
+      max-width: 500px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .card h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      padding-bottom: 5px;
+      color: #fff;
+    }
+
+    .card p, .card strong {
+      color: #eee;
+    }
+
+    .card.gallery-card {
+      background: rgba(255, 255, 255, 0.03);
       border-radius: 16px;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+      margin: 32px auto;
+      padding: 24px;
+      max-width: 100%;
+      width: 92%;
+      box-sizing: border-box;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
-    h3 {
-      font-size: 1.3rem;
-      color: var(--main-color);
+    .gallery {
+      column-count: 3; /* 브라우저 폭에 따라 변경 가능 */
+      column-gap: 16px;
+      width: 92%;
+      margin: 0 auto;
+    }
+
+    .gallery img {
+      width: 100%;
       margin-bottom: 16px;
-      font-weight: bold;
-      border-left: 4px solid var(--main-color);
-      padding-left: 12px;
+      border-radius: 12px;
+      break-inside: avoid;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
     }
 
-    .card p {
-      margin-bottom: 12px;
-      font-size: 1.1rem;
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 1000px) {
+      .gallery { column-count: 2; }
+    }
+    @media (max-width: 600px) {
+      .gallery { column-count: 1; }
     }
 
     .map-button {
       display: inline-block;
-      margin: 12px 6px 0;
-      padding: 12px 24px;
-      border: 2px solid var(--main-color);
-      border-radius: 8px;
-      color: var(--main-color);
-      font-weight: bold;
+      margin: 5px 10px 0 0;
+      padding: 10px 14px;
+      background-color: #ffffff22;
+      color: white;
+      border-radius: 6px;
       text-decoration: none;
-      transition: 0.3s;
+      font-size: 14px;
+      transition: background 0.3s;
+      border: 1px solid #ffffff44;
     }
 
     .map-button:hover {
-      background: var(--main-color);
-      color: white;
-    }
-
-    .gallery {
-      display: flex;
-      overflow-x: auto;
-      gap: 12px;
-      padding: 10px 0;
-    }
-
-    .gallery img {
-      height: 180px;
-      border-radius: 10px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-
-    .calendar {
-      text-align: center;
-      font-family: 'Marcellus', serif;
-    }
-
-    .calendar .date {
-      font-size: 2rem;
-      color: var(--main-color);
-      margin-bottom: 8px;
-    }
-
-    .calendar .day {
-      font-size: 1.2rem;
-      color: #777;
+      background-color: #ffffff44;
     }
 
     .account p {
-      font-family: 'Marcellus', serif;
-      font-size: 1.1rem;
-    }
-
-    footer {
-      text-align: center;
-      color: #aaa;
-      font-size: 0.95rem;
-      margin-top: 60px;
-      padding-bottom: 40px;
+      margin: 8px 0;
+      font-weight: bold;
     }
 
     .share-buttons {
-      margin-top: 24px;
       text-align: center;
+      margin: 30px 0;
     }
 
     .share-buttons a {
       margin: 0 10px;
-      font-size: 1.2rem;
-      color: var(--main-color);
       text-decoration: none;
+      font-size: 16px;
+      color: #ddd;
     }
 
-    @media (max-width: 600px) {
-      .gallery img { height: 140px; }
-      .map-button { font-size: 0.95rem; padding: 10px 18px; }
+    footer {
+      text-align: center;
+      font-size: 14px;
+      color: #aaa;
+      margin: 40px 0 20px;
     }
   </style>
 </head>
 <body>
 
-<header>
-  You're Invited
-</header>
+  <!-- ♥ 하트 떨어짐 컨테이너 -->
+  <div id="petal-container"></div>
 
-<div class="container">
-  <div class="names">임채윤 ♥ 왕감경</div>
-  <div class="divider"></div>
+  <!-- 메인 이미지 -->
+  <div class="section" id="main-section"><img src="imgs/main.jpg" alt="cover"></div>
+  <div class="section"><img src="imgs/main_1.jpg" alt="시 문구"></div>
+  <div class="section"><img src="imgs/map.jpg" alt="날짜"></div>
 
-  <div class="card calendar">
-    <div class="date">2025년 9월 14일</div>
-    <div class="day">일요일 오후 12시 30분</div>
-    <p>H스퀘어웨딩홀 6층 (서울 성동구 마조로 22-2)</p>
-    <p>우편번호: 04763</p>
-  </div>
-
+  <!-- 📸 갤러리 -->
   <div class="card">
     <h3>갤러리</h3>
     <div class="gallery">
-      <img src="images/gallery1.jpg" alt="Gallery 1">
-      <img src="images/gallery2.jpg" alt="Gallery 2">
-      <img src="images/gallery3.jpg" alt="Gallery 3">
+      <img src="./imgs/gallary/gallery1.jpg" alt="Gallery 1">
+      <img src="./imgs/gallary/gallery2.jpg" alt="Gallery 2">
+      <img src="./imgs/gallary/gallery3.jpg" alt="Gallery 3">
+      <img src="./imgs/gallary/gallery4.jpg" alt="Gallery 4">
+      <img src="./imgs/gallary/gallery5.jpg" alt="Gallery 5">
+      <img src="./imgs/gallary/gallery6.jpg" alt="Gallery 6">
+      <img src="./imgs/gallary/gallery7.jpg" alt="Gallery 7">
     </div>
   </div>
 
-  <div class="card">
-    <h3>교통 안내</h3>
-    <p><strong>지하철:</strong> 2호선 한양대역 1번출구, 5호선 왕십리역 6번출구 (도보 약 5분)</p>
-    <p><strong>버스:</strong> 지선: 2012, 2013, 2014, 2220 외 / 간선: 263, 302, 371</p>
-  </div>
-
-  <div class="card">
-    <h3>주차 안내</h3>
-    <p>하객 1시간 30분 무료주차</p>
-    <p>동문회관 예식부 주차장, 한양대병원 주차장 이용 가능</p>
-  </div>
-
+  <!-- 🗺️ 지도 연결 -->
   <div class="card">
     <h3>지도 연결</h3>
     <p>지도를 통해 쉽게 찾아오세요.</p>
@@ -207,21 +170,26 @@
     <a class="map-button" href="https://map.naver.com/p/entry/place/11528974" target="_blank">📍 네이버지도</a>
   </div>
 
+  <!-- 💝 계좌 안내 -->
   <div class="card account">
     <h3>마음 전하실 곳</h3>
     <p>💍 신랑: 국민은행 123456-78-91011</p>
     <p>💍 신부: 신한은행 111222-33-44455</p>
   </div>
 
+  <!-- 📣 공유 버튼 -->
   <div class="share-buttons">
     <a href="https://twitter.com/intent/tweet?text=채윤%20♥%20감경%20결혼합니다!&url=https://yourdomain.com/wedding" target="_blank">💌 트위터 공유</a>
     <a href="https://www.facebook.com/sharer/sharer.php?u=https://yourdomain.com/wedding" target="_blank">💌 페이스북 공유</a>
   </div>
 
+  <!-- 👣 푸터 -->
   <footer>
     ⓒ 2025 임채윤 ♥ 왕감경 모바일 청첩장
   </footer>
-</div>
 
-</body>
-</html>
+  <!-- 🌸 하트 애니메이션 JS -->
+
+  </body>
+  </html>
+
