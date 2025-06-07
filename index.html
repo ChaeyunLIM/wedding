@@ -72,7 +72,8 @@
     .gallery {
       column-count: 3; /* 브라우저 폭에 따라 변경 가능 */
       column-gap: 16px;
-      width: 92%;
+      width: 100%;
+      max-width: 960px;
       margin: 0 auto;
     }
 
@@ -80,20 +81,26 @@
       width: 100%;
       margin-bottom: 16px;
       border-radius: 12px;
+      display: block;
       break-inside: avoid;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-      transition: transform 0.3s ease;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
     }
 
     .gallery img:hover {
       transform: scale(1.02);
     }
 
-    @media (max-width: 1000px) {
-      .gallery { column-count: 2; }
+    /* ✅ 모바일 반응형 */
+    @media (max-width: 768px) {
+      .gallery {
+        column-count: 2;
+      }
     }
-    @media (max-width: 600px) {
-      .gallery { column-count: 1; }
+
+    @media (max-width: 480px) {
+      .gallery {
+        column-count: 2; /* 또는 1.5로 시도해볼 수도 있음 */
+      }
     }
 
 
