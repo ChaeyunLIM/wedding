@@ -4,7 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>임채윤 ♥ 왕감경 결혼합니다</title>
-  <link href="https://fonts.googleapis.com/css2?family=Marcellus&display=swap" rel="stylesheet">
+  <!-- Swiper CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+
+  <!-- GLightbox CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  />
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html, body {
@@ -142,6 +147,85 @@
       background-color: rgba(255, 255, 255, 0.12);
     }
 
+    .swiper {
+      width: 100%;
+      height: auto;
+      padding-bottom: 30px;
+    }
+
+    .swiper-slide {
+      width: 80%;  /* 또는 max-width: 320px; */
+      max-width: 300px;
+      transform: scale(0.88);
+      opacity: 0.5;
+      transition: all 0.4s ease;
+      filter: blur(1px);
+    }
+
+    .swiper-slide-active {
+      transform: scale(1);
+      opacity: 1;
+      z-index: 2;
+      filter: blur(0);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .swiper-slide img {
+      border-radius: 16px;
+      height: 320px;
+      object-fit: cover;
+      width: 100%;
+    }
+
+    .swiper-slide img:hover {
+      transform: scale(1.02);
+    }
+
+    @media (max-width: 768px) {
+      .swiper-slide img {
+        height: 240px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .swiper-slide img {
+        height: 200px;
+      }
+    }
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      background-color: rgba(255, 255, 255, 0.08);
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 0 8px rgba(255, 255, 255, 0.1);
+      transition: all 0.3s ease;
+      outline: none;
+      border: none;
+    }
+
+    .swiper-button-next:focus,
+    .swiper-button-prev:focus {
+      outline: none;
+      box-shadow: none;
+    }
+
+    .swiper-button-next:hover,
+    .swiper-button-prev:hover {
+      background-color: rgba(255, 255, 255, 0.15);
+      transform: scale(1.05);
+    }
+
+    /* 아이콘 스타일 변경 */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+      font-size: 18px;
+      color: white;
+    }
+
+    
     .account p {
       margin: 8px 0;
       font-weight: bold;
@@ -236,15 +320,52 @@
 
   <!-- 📸 갤러리 -->
   <div class="card">
-    <h3>갤러리</h3>
-    <div class="gallery">
-      <img src="./imgs/gallary/gallery1.jpg" alt="Gallery 1">
-      <img src="./imgs/gallary/gallery2.jpg" alt="Gallery 2">
-      <img src="./imgs/gallary/gallery3.jpg" alt="Gallery 3">
-      <img src="./imgs/gallary/gallery4.jpg" alt="Gallery 4">
-      <img src="./imgs/gallary/gallery5.jpg" alt="Gallery 5">
-      <img src="./imgs/gallary/gallery6.jpg" alt="Gallery 6">
-      <img src="./imgs/gallary/gallery7.jpg" alt="Gallery 7">
+    <h3>📸 갤러리</h3>
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <!-- 각각 a 태그에 href로 확대 보기 -->
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery1.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery1.jpg" alt="1" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery2.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery2.jpg" alt="2" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery3.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery3.jpg" alt="3" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery4.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery4.jpg" alt="4" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery5.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery5.jpg" alt="5" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery6.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery6.jpg" alt="6" />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href="./imgs/gallary/gallery7.jpg" class="glightbox" data-gallery="wedding">
+            <img src="./imgs/gallary/gallery7.jpg" alt="7" />
+          </a>
+        </div>
+        <!-- 추가 이미지들... -->
+      </div>
+
+      <!-- Optional: 화살표/페이지네이션 -->
+      <div class="swiper-pagination"></div>
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
     </div>
   </div>
 
@@ -287,11 +408,11 @@
     <details class="account-section">
       <summary>💍 신랑측 보기</summary>
       <div class="account-list">
-        <p>👤 신랑 본인: 국민은행 <span class="account-num">123456-78-91011</span>
+        <p>👤 임채윤 : 새마을금고 <span class="account-num">9003-2768-2930-3</span>
           <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
-        <p>👨‍👦 아버지: 우리은행 <span class="account-num">111-2222-3333</span>
+        <p>👨 임순택 : 우리은행 <span class="account-num">111-2222-3333</span>
           <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
-        <p>👩‍👦 어머니: 농협 <span class="account-num">444-5555-6666</span>
+        <p>👩‍👦 김도연 : 농협 <span class="account-num">444-5555-6666</span>
           <button class="copy-btn" onclick="copyToClipboard(this)">📋</button></p>
       </div>
     </details>
@@ -333,5 +454,42 @@
   </script>
   
   </body>
+  <!-- Swiper JS -->
+  <!-- Swiper -->
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+
+  <!-- GLightbox -->
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+  <script>
+    // Swiper init
+    const swiper = new Swiper(".mySwiper", {
+      loop: true,
+      centeredSlides: true,
+      slidesPerView: 1.2,
+      spaceBetween: 16,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev"
+      },
+      breakpoints: {
+        768: { slidesPerView: 2.2 },
+        1024: { slidesPerView: 3 }
+      }
+    });
+
+    // Lightbox init
+    const lightbox = GLightbox({
+      selector: '.glightbox',
+      touchNavigation: true,
+      loop: true,
+      zoomable: true
+    });
+  </script>
+
   </html>
 
