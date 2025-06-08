@@ -185,42 +185,54 @@
 
 
 
-    .map-card {
-      padding: 24px;
+    .map-title {
+      font-size: 20px;
+      font-weight: bold;
+      text-align: center;
     }
 
-    .map-card p {
+    .map-subtitle {
       font-size: 15px;
-      color: #ddd;
-      margin-bottom: 12px;
+      text-align: center;
+      color: #666;
+      margin-bottom: 16px;
     }
 
-    .map-embed {
-      margin: 16px 0;
-      overflow: hidden;
+    #map {
+      width: 100%;
+      height: 300px;
       border-radius: 10px;
-      box-shadow: 0 0 8px rgba(0,0,0,0.2);
+      margin-bottom: 16px;
     }
 
-    .map-buttons {
+    .nav-buttons {
       display: flex;
-      gap: 12px;
+      justify-content: space-around;
+      align-items: center;
       flex-wrap: wrap;
+      margin-bottom: 16px;
     }
 
-    .map-button {
-      background-color: rgba(255, 255, 255, 0.05);
-      color: white;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      padding: 10px 14px;
-      border-radius: 8px;
+    .nav-buttons a {
+      text-align: center;
       text-decoration: none;
-      font-size: 14px;
-      transition: background 0.2s;
+      font-size: 13px;
+      color: #333;
     }
 
-    .map-button:hover {
-      background-color: rgba(255, 255, 255, 0.12);
+    .nav-buttons img {
+      width: 48px;
+      margin-bottom: 4px;
+    }
+
+    .transport-info p {
+      font-size: 14px;
+      margin: 6px 0;
+    }
+
+    .highlight {
+      color: #c0392b;
+      font-weight: bold;
     }
 
     .swiper {
@@ -477,53 +489,52 @@
     </div>
   </div>
 
-  <!-- 🗺️ 지도 연결 -->
-  <!-- ✅ 지도 영역 -->
-  <div class="card" style="max-width: 640px; margin: 0 auto; background: white; color: #333; padding: 24px; border-radius: 12px;">
+  <!-- HTML -->
+  <div class="card">
+    <div class="map-title">H스퀘어 웨딩홀</div>
+    <div class="map-subtitle">서울 성동구 마조로 22-2</div>
 
-    <h3 style="margin-bottom: 6px;">H스퀘어 웨딩홀</h3>
-    <p style="font-size: 14px; color: #555;">서울 성동구 마조로 22-2</p>
+    <!-- 🗺️ 카카오 지도 -->
+    <div id="map"></div>
 
-    <!-- 🗺️ 네이버 지도 -->
-    <div id="map" style="width: 100%; height: 280px; margin: 12px 0; border-radius: 8px;"></div>
-
-    <!-- 🧭 내비 버튼 -->
-    <div style="display: flex; justify-content: space-around; margin: 10px 0;">
+    <!-- 🚘 내비 버튼 -->
+    <div class="nav-buttons">
       <a href="https://www.tmap.co.kr/tmap2/mobile/reverseGeocoding.do?lat=37.557374&lon=127.045716" target="_blank">
-        <img src="./icons/tmap.png" width="48"><br><span style="font-size: 13px;">티맵</span>
+        <img src="./imgs/map/tmap.png" alt="TMAP"><br>티맵
       </a>
       <a href="https://map.kakao.com/link/to/H스퀘어웨딩홀,37.557374,127.045716" target="_blank">
-        <img src="./icons/kakaonavi.png" width="48"><br><span style="font-size: 13px;">카카오내비</span>
+        <img src="./imgs/map/kakao.png" alt="KakaoNavi"><br>카카오내비
       </a>
-      <a href="https://map.naver.com/p/entry/place/11528974" target="_blank">
-        <img src="./icons/naver.png" width="48"><br><span style="font-size: 13px;">네이버지도</span>
+      <a href="https://map.naver.com/p/search/H스퀘어웨딩홀" target="_blank">
+        <img src="./imgs/map/naver.png" alt="Naver"><br>네이버지도
       </a>
     </div>
 
-    <!-- 🚌 안내 -->
-    <div style="margin-top: 16px; font-size: 14px; color: #444;">
-      <p>🚌 버스: 302, 263, 2016번 - H스퀘어 정류장 하차 후 도보 2분</p>
+    <!-- 🚌 교통 안내 -->
+    <div class="transport-info">
+      <p>🚌 버스: 302, 263, 2016번 – H스퀘어 정류장 하차 후 도보 2분</p>
       <p>🚇 지하철: 2호선 한양대역 1번 출구 도보 6분</p>
-      <p>🚘 자차: 'H스퀘어 웨딩홀' 또는 '마조로 22-2' 검색</p>
-      <p style="color: #d33;">🚐 셔틀버스 운영 간격: 15분</p>
+      <p>🚘 자차: ‘H스퀘어 웨딩홀’ 또는 ‘마조로 22-2’ 검색</p>
+      <p class="highlight">🚐 셔틀버스 운영 간격: 15분</p>
     </div>
   </div>
 
-  <!-- ✅ 네이버 지도 API -->
-  <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+  <!-- ✅ 카카오 지도 API JS -->
+  <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=2dc8c47776fa4182cde63cd45a99e9fd"></script>
   <script>
-    var mapOptions = {
-      center: new naver.maps.LatLng(37.557374, 127.045716),
-      zoom: 17
+    const mapContainer = document.getElementById('map');
+    const mapOption = {
+      center: new kakao.maps.LatLng(37.557374, 127.045716),
+      level: 3
     };
 
-    var map = new naver.maps.Map('map', mapOptions);
+    const map = new kakao.maps.Map(mapContainer, mapOption);
 
-    var marker = new naver.maps.Marker({
-      position: new naver.maps.LatLng(37.557374, 127.045716),
-      map: map,
-      title: 'H스퀘어 웨딩홀'
+    const markerPosition  = new kakao.maps.LatLng(37.557374, 127.045716);
+    const marker = new kakao.maps.Marker({
+      position: markerPosition
     });
+    marker.setMap(map);
   </script>
 
 
