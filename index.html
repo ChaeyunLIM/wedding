@@ -74,6 +74,82 @@
       border: 1px solid rgba(255,255,255,0.1);
     }
 
+    /* 외부 wrapper 기준 */
+    @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+
+    .sig-calendar {
+      width: 100%;
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 24px 16px;
+      border-radius: 20px;
+      background: #1f2924;
+      font-family: 'Quicksand', sans-serif;
+      color: #e5decf;
+      box-sizing: border-box;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3);
+    }
+
+    .sig-calendar-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 16px;
+      font-weight: 600;
+      color: #e0c18d;
+      margin-bottom: 16px;
+    }
+
+    .sig-calendar-grid {
+      display: grid;
+      grid-template-columns: repeat(7, 1fr);
+      gap: 8px;
+      background: rgba(255,255,255,0.03);
+      padding: 16px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,0.05);
+      box-sizing: border-box;
+    }
+
+    .day-name {
+      font-weight: 700;
+      font-size: 13px;
+      color: #ccc;
+      padding-bottom: 4px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .day {
+      font-size: 15px;
+      padding: 10px 0;
+      border-radius: 8px;
+      color: #eee;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .day.sunday {
+      color: #e77c7c;
+    }
+
+    .day.heart-only {
+      background: #000;
+      font-size: 17px;
+      color: #ff6b81;
+      font-weight: bold;
+      box-shadow: inset 0 0 8px rgba(255,255,255,0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .day.empty {
+      visibility: hidden;
+    }
+
+
+
+
+
     .gallery {
       column-count: 3;
       column-gap: 16px;
@@ -316,11 +392,43 @@
   <!-- 메인 이미지 -->
   <div class="section" id="main-section"><img src="imgs/main.jpg" alt="cover"></div>
   <div class="section"><img src="imgs/main_1.jpg" alt="시 문구"></div>
+
+  <div class="sig-calendar">
+    <div class="sig-calendar-header">
+      <div>9월 14일</div>
+      <div>일, 오후 12:30</div>
+    </div>
+    <div class="sig-calendar-grid">
+      <div class="day-name">Su</div> <div class="day-name">Mo</div> <div class="day-name">Tu</div>
+      <div class="day-name">We</div> <div class="day-name">Th</div> <div class="day-name">Fr</div> <div class="day-name">Sa</div>
+  
+      <div class="day empty"></div>
+      <div class="day">1</div><div class="day">2</div><div class="day">3</div>
+      <div class="day">4</div><div class="day">5</div><div class="day">6</div>
+  
+      <div class="day sunday">7</div><div class="day">8</div><div class="day">9</div>
+      <div class="day">10</div><div class="day">11</div><div class="day">12</div>
+      <div class="day">13</div>
+  
+      <div class="day heart-only">❤️</div> <!-- ← 14일 -->
+  
+      <div class="day">15</div><div class="day">16</div><div class="day">17</div>
+      <div class="day">18</div><div class="day">19</div><div class="day">20</div>
+  
+      <div class="day">21</div><div class="day">22</div><div class="day">23</div>
+      <div class="day">24</div><div class="day">25</div><div class="day">26</div><div class="day">27</div>
+  
+      <div class="day">28</div><div class="day">29</div><div class="day">30</div>
+    </div>
+  </div>
+  
+
+  
   <div class="section"><img src="imgs/map.jpg" alt="날짜"></div>
 
   <!-- 📸 갤러리 -->
   <div class="card">
-    <h3>📸 갤러리</h3>
+    <h3>갤러리</h3>
     <div class="swiper mySwiper">
       <div class="swiper-wrapper">
         <!-- 각각 a 태그에 href로 확대 보기 -->
@@ -370,36 +478,56 @@
   </div>
 
   <!-- 🗺️ 지도 연결 -->
-  <div class="card">
-    <h3>지도 연결</h3>
-    <p>지도를 통해 쉽게 찾아오세요.</p>
+  <!-- ✅ 지도 영역 -->
+  <div class="card" style="max-width: 640px; margin: 0 auto; background: white; color: #333; padding: 24px; border-radius: 12px;">
 
-  <!-- 🗺️ 지도 미리보기 (카카오맵 예시) -->
-  <div id="map" style="width: 100%; height: 300px; border-radius: 12px;"></div>
+    <h3 style="margin-bottom: 6px;">H스퀘어 웨딩홀</h3>
+    <p style="font-size: 14px; color: #555;">서울 성동구 마조로 22-2</p>
 
-  <!-- 📍 지도 버튼 -->
-  <div class="map-buttons">
-    <a class="map-button" href="https://map.kakao.com/link/map/H스퀘어웨딩홀,37.557374,127.045716" target="_blank">📍 카카오맵</a>
-    <a class="map-button" href="https://map.naver.com/p/entry/place/11528974" target="_blank">📍 네이버지도</a>
+    <!-- 🗺️ 네이버 지도 -->
+    <div id="map" style="width: 100%; height: 280px; margin: 12px 0; border-radius: 8px;"></div>
+
+    <!-- 🧭 내비 버튼 -->
+    <div style="display: flex; justify-content: space-around; margin: 10px 0;">
+      <a href="https://www.tmap.co.kr/tmap2/mobile/reverseGeocoding.do?lat=37.557374&lon=127.045716" target="_blank">
+        <img src="./icons/tmap.png" width="48"><br><span style="font-size: 13px;">티맵</span>
+      </a>
+      <a href="https://map.kakao.com/link/to/H스퀘어웨딩홀,37.557374,127.045716" target="_blank">
+        <img src="./icons/kakaonavi.png" width="48"><br><span style="font-size: 13px;">카카오내비</span>
+      </a>
+      <a href="https://map.naver.com/p/entry/place/11528974" target="_blank">
+        <img src="./icons/naver.png" width="48"><br><span style="font-size: 13px;">네이버지도</span>
+      </a>
+    </div>
+
+    <!-- 🚌 안내 -->
+    <div style="margin-top: 16px; font-size: 14px; color: #444;">
+      <p>🚌 버스: 302, 263, 2016번 - H스퀘어 정류장 하차 후 도보 2분</p>
+      <p>🚇 지하철: 2호선 한양대역 1번 출구 도보 6분</p>
+      <p>🚘 자차: 'H스퀘어 웨딩홀' 또는 '마조로 22-2' 검색</p>
+      <p style="color: #d33;">🚐 셔틀버스 운영 간격: 15분</p>
+    </div>
   </div>
-</div>
 
-<!-- 카카오 지도 스크립트 삽입 -->
-<script type="text/javascript" src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_APP_KEY"></script>
-<script>
-  const container = document.getElementById('map');
-  const options = {
-    center: new kakao.maps.LatLng(37.557374, 127.045716),
-    level: 3
-  };
-  const map = new kakao.maps.Map(container, options);
+  <!-- ✅ 네이버 지도 API -->
+  <script src="https://openapi.map.naver.com/openapi/v3/maps.js?ncpClientId=YOUR_CLIENT_ID"></script>
+  <script>
+    var mapOptions = {
+      center: new naver.maps.LatLng(37.557374, 127.045716),
+      zoom: 17
+    };
 
-  const markerPosition  = new kakao.maps.LatLng(37.557374, 127.045716);
-  const marker = new kakao.maps.Marker({
-    position: markerPosition
-  });
-  marker.setMap(map);
-</script>
+    var map = new naver.maps.Map('map', mapOptions);
+
+    var marker = new naver.maps.Marker({
+      position: new naver.maps.LatLng(37.557374, 127.045716),
+      map: map,
+      title: 'H스퀘어 웨딩홀'
+    });
+  </script>
+
+
+  
 
   <!-- 💝 계좌 안내 -->
   <div class="card account">
